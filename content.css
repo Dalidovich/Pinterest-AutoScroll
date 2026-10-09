@@ -1,0 +1,88 @@
+html.autoscroll-on::-webkit-scrollbar {
+  display: none;
+}
+
+html.autoscroll-idle,
+html.autoscroll-idle * {
+  cursor: none !important;
+}
+
+html.autoscroll-idle body {
+  will-change: transform;
+}
+
+[data-autoscroll-pinned],
+[data-test-id="header"],
+[data-test-id="unauth-header"],
+[data-test-id="homefeed-feed"] > :has([role="tablist"]) {
+  transition: opacity 0.4s ease;
+}
+
+html.autoscroll-idle [data-autoscroll-pinned],
+html.autoscroll-idle [data-test-id="header"],
+html.autoscroll-idle [data-test-id="unauth-header"],
+html.autoscroll-idle [data-test-id="homefeed-feed"] > :has([role="tablist"]) {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.autoscroll-hud {
+  position: fixed;
+  right: 16px;
+  bottom: 96px;
+  z-index: 2147483647;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font: 500 16px/1.2 system-ui, sans-serif;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.autoscroll-hud.autoscroll-hud-visible {
+  opacity: 1;
+}
+
+.autoscroll-controls {
+  position: fixed;
+  right: 16px;
+  bottom: 12px;
+  z-index: 2147483647;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+html.autoscroll-idle .autoscroll-controls {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.autoscroll-stop {
+  margin: 0;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font: 600 15px/1.2 system-ui, sans-serif;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.autoscroll-stop:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.autoscroll-version {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font: 500 11px/1.4 system-ui, sans-serif;
+}

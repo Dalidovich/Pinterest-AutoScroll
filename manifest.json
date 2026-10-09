@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Pinterest AutoScroll",
+  "version": "1.1.2",
+  "description": "Slowly scrolls the Pinterest feed like a screensaver. Click the toolbar button on a Pinterest tab to toggle.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Toggle Pinterest AutoScroll"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.pinterest.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
